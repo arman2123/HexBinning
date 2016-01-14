@@ -19,11 +19,12 @@ module.exports = function ( config ) {
 			// test items
 			{pattern: 'test/**/*.test.js', included: false},
 			{pattern: 'test/**/*.stub.js', included: false},
-			{pattern: 'test/data/testdata.json', included: false},
+			{pattern: 'test/data/*.data.json', included: false},
 
 			// code under test
 			{pattern: 'HexagonalBinning.css', included: false},
 			{pattern: 'HexagonalBinning.js', included: false},
+			{pattern: 'senseUtils.js', included: false},
 
 			// external libraries
 			{pattern: 'hexbin.js', included: false},
@@ -32,7 +33,6 @@ module.exports = function ( config ) {
 			{pattern: 'd3-legends.js', included: false},
 
 			// qlik libraries
-			{pattern: 'senseUtils.js', included: false},
 
 			// requirejs configuration
 			{pattern: 'test/require-config.js', included: true}
