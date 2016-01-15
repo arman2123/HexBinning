@@ -260,12 +260,15 @@ define( ["jquery", "text!./HexagonalBinning.css", "./d3.min", "./hexbin", "./las
 		},
 		paint: function ( $element, layout ) {
 			// Call SenseUtils to page the data for > 10000
-			senseUtils.pageExtensionData( this, $element, layout, drawHex, self );
-		}
+			senseUtils.pageExtensionData( this, $element, layout, this._drawHex, self );
+		},
+		_drawHex: drawHex,
+		_viz: viz
+
 	};
 } );
 
-function drawHex ( $element, layout, fullMatrix, self ) {
+var drawHex = function ( $element, layout, fullMatrix, self ) {
 
 	// get qMatrix data array
 	//var qMatrix = layout.qHyperCube.qDataPages[0].qMatrix;
@@ -337,7 +340,7 @@ function drawHex ( $element, layout, fullMatrix, self ) {
 		} ) )
 	}
 
-	viz(
+	self._viz(
 		self,
 		data,
 		measureLabels,
