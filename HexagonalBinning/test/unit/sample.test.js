@@ -1,4 +1,4 @@
-define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout.data.json", "sinon"],
+define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.json", "sinon"],
 	function ( $, hexagonalBinning, senseUtils, mockdata, sinon ) {
 
 		describe( 'Unit test suite', function () {

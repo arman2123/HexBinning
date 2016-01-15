@@ -1,0 +1,408 @@
+{
+  "qInfo": {
+    "qId": "61393cf2-0731-4a1b-bab6-b687792bf95b",
+    "qType": "HexagonalBinning"
+  },
+  "qSelectionInfo": {
+  },
+  "qHyperCube": {
+    "qSize": {
+      "qcx": 3,
+      "qcy": 12
+    },
+    "qDimensionInfo": [
+      {
+        "qFallbackTitle": "Name",
+        "qApprMaxGlyphCount": 25,
+        "qCardinal": 565,
+        "qSortIndicator": "A",
+        "qGroupFallbackTitles": [
+          "Name"
+        ],
+        "qGroupPos": 0,
+        "qStateCounts": {
+          "qLocked": 0,
+          "qSelected": 12,
+          "qOption": 0,
+          "qDeselected": 0,
+          "qAlternative": 553,
+          "qExcluded": 0,
+          "qSelectedExcluded": 0,
+          "qLockedExcluded": 0
+        },
+        "qTags": [
+          "$text"
+        ],
+        "qDimensionType": "D",
+        "qGrouping": "N",
+        "qNumFormat": {
+          "qType": "U",
+          "qnDec": 0,
+          "qUseThou": 0
+        },
+        "qIsAutoFormat": true,
+        "qGroupFieldDefs": [
+          "Name"
+        ],
+        "autoSort": true,
+        "cId": "REByBQ",
+        "othersLabel": "Others"
+      }
+    ],
+    "qMeasureInfo": [
+      {
+        "qFallbackTitle": "Defending",
+        "qApprMaxGlyphCount": 2,
+        "qCardinal": 0,
+        "qSortIndicator": "D",
+        "qNumFormat": {
+          "qType": "R",
+          "qnDec": 0,
+          "qUseThou": 0,
+          "qFmt": "########",
+          "qDec": ".",
+          "qThou": ","
+        },
+        "qMin": 69,
+        "qMax": 70,
+        "qIsAutoFormat": true,
+        "qAttrExprInfo": [
+        ],
+        "autoSort": true,
+        "cId": "eRPJfC",
+        "numFormatFromTemplate": true
+      },
+      {
+        "qFallbackTitle": "Heading",
+        "qApprMaxGlyphCount": 2,
+        "qCardinal": 0,
+        "qSortIndicator": "D",
+        "qNumFormat": {
+          "qType": "R",
+          "qnDec": 0,
+          "qUseThou": 0,
+          "qFmt": "########",
+          "qDec": ".",
+          "qThou": ","
+        },
+        "qMin": 67,
+        "qMax": 73,
+        "qIsAutoFormat": true,
+        "qAttrExprInfo": [
+        ],
+        "autoSort": true,
+        "cId": "FHDAwD",
+        "numFormatFromTemplate": true
+      }
+    ],
+    "qEffectiveInterColumnSortOrder": [
+      0,
+      1,
+      2
+    ],
+    "qGrandTotalRow": [
+      {
+        "qText": "69.333333",
+        "qNum": 69.33333333333333,
+        "qElemNumber": -1,
+        "qState": "X",
+        "qIsTotalCell": true
+      },
+      {
+        "qText": "69.5",
+        "qNum": 69.5,
+        "qElemNumber": -1,
+        "qState": "X",
+        "qIsTotalCell": true
+      }
+    ],
+    "qDataPages": [
+      {
+        "qMatrix": [
+          [
+            {
+              "qText": "Alexander Büttner",
+              "qNum": "NaN",
+              "qElemNumber": 175,
+              "qState": "S"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Anderson",
+              "qNum": "NaN",
+              "qElemNumber": 338,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Bakaye Traoré",
+              "qNum": "NaN",
+              "qElemNumber": 363,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "73",
+              "qNum": 73,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Bruno Uvini",
+              "qNum": "NaN",
+              "qElemNumber": 112,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "67",
+              "qNum": 67,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Frank Lampard",
+              "qNum": "NaN",
+              "qElemNumber": 327,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "71",
+              "qNum": 71,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Giandomenico Mesto",
+              "qNum": "NaN",
+              "qElemNumber": 173,
+              "qState": "S"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "67",
+              "qNum": 67,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Ilsinho",
+              "qNum": "NaN",
+              "qElemNumber": 285,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Luis Pedro Cavanda",
+              "qNum": "NaN",
+              "qElemNumber": 167,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Marco Motta",
+              "qNum": "NaN",
+              "qElemNumber": 176,
+              "qState": "S"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "McDonald Mariga",
+              "qNum": "NaN",
+              "qElemNumber": 238,
+              "qState": "S"
+            },
+            {
+              "qText": "70",
+              "qNum": 70,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "71",
+              "qNum": 71,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Michel Macedo",
+              "qNum": "NaN",
+              "qElemNumber": 189,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "68",
+              "qNum": 68,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ],
+          [
+            {
+              "qText": "Nathaniel Chalobah",
+              "qNum": "NaN",
+              "qElemNumber": 242,
+              "qState": "S"
+            },
+            {
+              "qText": "69",
+              "qNum": 69,
+              "qElemNumber": 0,
+              "qState": "L"
+            },
+            {
+              "qText": "68",
+              "qNum": 68,
+              "qElemNumber": 0,
+              "qState": "L"
+            }
+          ]
+        ],
+        "qTails": [
+          {
+            "qUp": 0,
+            "qDown": 0
+          }
+        ],
+        "qArea": {
+          "qLeft": 0,
+          "qTop": 0,
+          "qWidth": 3,
+          "qHeight": 12
+        }
+      }
+    ],
+    "qPivotDataPages": [
+    ],
+    "qStackedDataPages": [
+    ],
+    "qMode": "S",
+    "qNoOfLeftDims": -1
+  },
+  "metadata": {
+    "name": "",
+    "description": "",
+    "tags": [
+    ]
+  },
+  "showTitles": true,
+  "title": "FIFA 14 Defence Stats - Colour Hex Binning",
+  "subtitle": "",
+  "footnote": "",
+  "binningMode": 0,
+  "areaColor": "#d73027",
+  "ColorSchema": "#ffffe5, #fff7bc, #fee391, #fec44f, #fe9929, #ec7014, #cc4c02, #993404, #662506",
+  "colorAxis": 2,
+  "maxRadius": 30,
+  "minRadius": 2,
+  "fillMesh": false,
+  "titleLayout": 1,
+  "centerHexagons": true,
+  "visualization": "HexagonalBinning",
+  "version": 1,
+  "showLegend": true,
+  "useStaticLayout": false,
+  "showNumbers": false
+}
