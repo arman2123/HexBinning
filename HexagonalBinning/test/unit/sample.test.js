@@ -44,6 +44,43 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 
 				} );
 
+				it( "selected objects are loaded correctly.", function () {
+
+					sinon.stub( hexagonalBinning, "viz",
+						function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
+								   height, id, selections, binningMode, areaColor, colorpalette, showLegend, colorAxis,
+								   maxRadius, minRadius, fillMesh, titleLayout, useStaticLayout, minXAxis, minYAxis,
+								   maxXAxis, maxYAxis, centerHexagons, showNumber ) {
+
+							// 12 items are selected in the mock data
+							expect( selections.dim1_count ).toBe( 12 );
+
+							expect( data[0].Dim1 ).toBe( "Alexander Büttner" );
+							expect( data[0].Dim1_key ).toBe( 175 );
+							expect( data[0].Metric1 ).toBe( 70 );
+							expect( data[0].Metric2 ).toBe( 70 );
+
+							expect( data[4].Dim1 ).toBe( "Frank Lampard" );
+							expect( data[4].Dim1_key ).toBe( 327 );
+							expect( data[4].Metric1 ).toBe( 69 );
+							expect( data[4].Metric2 ).toBe( 71 );
+
+							expect( data[11].Dim1 ).toBe( "Nathaniel Chalobah" );
+							expect( data[11].Dim1_key ).toBe( 242 );
+							expect( data[11].Metric1 ).toBe( 69 );
+							expect( data[11].Metric2 ).toBe( 68 );
+						} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.viz );
+
+					hexagonalBinning.viz.restore();
+
+				} );
+
 				it( "axis labels are set correctly.", function () {
 
 					sinon.stub( hexagonalBinning, "viz",
