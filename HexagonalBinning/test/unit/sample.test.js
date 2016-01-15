@@ -1,30 +1,61 @@
 define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout.data.json", "sinon"],
 	function ( $, hexagonalBinning, senseUtils, mockdata, sinon ) {
 
-		describe( 'Paint function', function () {
+		describe( 'Unit test suite', function () {
 			var layout;
 
 			beforeAll( function () {
+
+				// Getting the mock data
 				layout = JSON.parse( mockdata );
+
+				// Setup backendApi stub
+				var backendApi = new Object();
+
+				backendApi.eachDataRow = function ( callback ) {
+					var lastrow = layout.qHyperCube.qcy;
+					var rows = 0;
+					callback( lastrow, 0 );
+				};
+
+				backendApi.getRowCount = function () {
+					return layout.qHyperCube.qcy;
+				};
+
+				backendApi.getData = function ( requestPage ) {
+					// do nothing...
+				};
+
+				hexagonalBinning.backendApi = backendApi;
+
 			} );
 
-			it( "always passes", function () {
-				expect( 1 ).toBe( 1 );
+			afterAll( function () {
+
 			} );
 
-			it( "Call chain", function () {
+			describe( 'Functional tests', function () {
 
-				console.log( hexagonalBinning );
-				console.log( senseUtils );
+				it( "Call chain", function () {
+					var element = $( "<div></div>" );
 
-				var element = $( "<div></div>" );
+					sinon.spy( senseUtils, "pageExtensionData" );
+					sinon.spy( hexagonalBinning, "drawHex" );
+					sinon.stub( hexagonalBinning, "viz" );
 
-				var spy = sinon.spy( senseUtils, "pageExtensionData" );
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
 
-				console.log( layout );
-				hexagonalBinning.paint( element, layout );
+					// checking the call chain
+					sinon.assert.called( senseUtils.pageExtensionData );
+					sinon.assert.called( hexagonalBinning.drawHex );
+					sinon.assert.called( hexagonalBinning.viz );
 
-				assert( spy.called ).toBe( true );
+					senseUtils.pageExtensionData.restore();
+					hexagonalBinning.drawHex.restore();
+					hexagonalBinning.viz.restore();
+				} );
+
 			} );
 
 		} );
