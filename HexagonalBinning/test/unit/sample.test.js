@@ -1,12 +1,10 @@
 define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.json", "sinon"],
 	function ( $, hexagonalBinning, senseUtils, mockdata, sinon ) {
 
-		describe( 'Unit test suite', function () {
+		describe( 'Functional Test:', function () {
 			var layout;
 
 			beforeAll( function () {
-
-				// Getting the mock data
 				layout = JSON.parse( mockdata );
 
 				// Setup backendApi stub
@@ -34,11 +32,19 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 
 			} );
 
-			describe( 'Functional tests', function () {
+			describe( 'Before rendering,', function () {
+				var element, layout;
 
-				it( "Labels are set correctly", function () {
-					var element = $( "<div></div>" );
-					var layout = JSON.parse( mockdata );
+				beforeEach( function () {
+					element = $( "<div></div>" );
+					layout = JSON.parse( mockdata );
+				} );
+
+				afterEach( function () {
+
+				} );
+
+				it( "axis labels are set correctly.", function () {
 
 					sinon.stub( hexagonalBinning, "viz",
 						function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
@@ -62,9 +68,7 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 					hexagonalBinning.viz.restore();
 				} );
 
-				it( "Color binning set correctly.", function () {
-					var element = $( "<div></div>" );
-					var layout = JSON.parse( mockdata );
+				it( "color binning mode is set correctly.", function () {
 
 					// Setting the binning mode to "Color Binning" (i.e. 0)
 					layout.binningMode = 0;
@@ -95,9 +99,7 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 					hexagonalBinning.viz.restore();
 				} );
 
-				it( "Area binning set correctly.", function () {
-					var element = $( "<div></div>" );
-					var layout = JSON.parse( mockdata );
+				it( "area binning mode set correctly.", function () {
 
 					// Setting the binning mode to "Area Binning" (i.e. 1)
 					layout.binningMode = 1;
@@ -112,7 +114,7 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 								   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
 								   centerHexagons, showNumber ) {
 
-							// expecting binningMode flag to be 0
+							// expecting binningMode flag to be 1
 							expect( binningMode ).toBe( 1 );
 
 							// Additional checks specific to "Color binning" can go here...
