@@ -130,6 +130,41 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 					hexagonalBinning.viz.restore();
 				} );
 
+				it( "static layout set correctly.", function () {
+
+					layout.useStaticLayout = 1;
+					layout.minXAxis = 100;
+					layout.minYAxis = 125;
+					layout.maxXAxis = 350;
+					layout.maxYAxis = 375;
+
+					// Setting the stub for 'viz' which is going to check whether
+					// the correct params being passed to the visualization rendering function
+					sinon.stub( hexagonalBinning, "viz",
+						function ( self, data, labels,
+								   measureMin1, measureMax1, measureMin2, measureMax2,
+								   width, height, id, selections, binningMode,
+								   areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
+								   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
+								   centerHexagons, showNumber ) {
+
+							expect( useStaticLayout ).toBe( 1 );
+							expect( minXAxis ).toBe( 100 );
+							expect( minYAxis ).toBe( 125 );
+							expect( maxXAxis ).toBe( 350 );
+							expect( maxYAxis ).toBe( 375 );
+
+						} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.viz );
+
+					hexagonalBinning.viz.restore();
+				} );
+
 			} );
 
 		} );
