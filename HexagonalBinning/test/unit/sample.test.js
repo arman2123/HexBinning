@@ -32,6 +32,40 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 
 			} );
 
+			describe( 'After data paging, ', function () {
+				var element, layout;
+
+				beforeEach( function () {
+					element = $( "<div></div>" );
+					layout = JSON.parse( mockdata );
+				} );
+
+				afterEach( function () {
+
+				} );
+
+				it( "flat matrix generated correctly.", function () {
+
+					sinon.stub( hexagonalBinning, "drawHex",
+						function ( $element, layout, fullMatrix, self ) {
+							expect( fullMatrix.length ).toBe( 12 );
+							for ( var i = 0; i < fullMatrix.length; i++ ) {
+								expect( fullMatrix[i].length ).toBe( 3 );
+							}
+						} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.drawHex );
+
+					hexagonalBinning.drawHex.restore();
+
+				} );
+
+			} );
+
 			describe( 'Before rendering,', function () {
 				var element, layout;
 
