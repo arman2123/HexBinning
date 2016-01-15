@@ -36,23 +36,95 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 
 			describe( 'Functional tests', function () {
 
-				it( "Call chain", function () {
+				it( "Labels are set correctly", function () {
 					var element = $( "<div></div>" );
+					var layout = JSON.parse( mockdata );
 
-					sinon.spy( senseUtils, "pageExtensionData" );
-					sinon.spy( hexagonalBinning, "drawHex" );
-					sinon.stub( hexagonalBinning, "viz" );
+					sinon.stub( hexagonalBinning, "viz",
+						function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
+								   height, id, selections, binningMode, areaColor, colorpalette, showLegend, colorAxis,
+								   maxRadius, minRadius, fillMesh, titleLayout, useStaticLayout, minXAxis, minYAxis,
+								   maxXAxis, maxYAxis, centerHexagons, showNumber ) {
+
+							// expecting binningMode flag to be 0
+							expect( labels ).not.toBe( undefined );
+							expect( labels.length ).toBe( 2 );
+							expect( labels[0] ).toBe( "Defending" );
+							expect( labels[1] ).toBe( "Heading" );
+						} );
 
 					// calling the paint with mock data
 					hexagonalBinning.paint( element, layout );
 
-					// checking the call chain
-					sinon.assert.called( senseUtils.pageExtensionData );
-					sinon.assert.called( hexagonalBinning.drawHex );
+					// checking whether 'viz' got called
 					sinon.assert.called( hexagonalBinning.viz );
 
-					senseUtils.pageExtensionData.restore();
-					hexagonalBinning.drawHex.restore();
+					hexagonalBinning.viz.restore();
+				} );
+
+				it( "Color binning set correctly.", function () {
+					var element = $( "<div></div>" );
+					var layout = JSON.parse( mockdata );
+
+					// Setting the binning mode to "Color Binning" (i.e. 0)
+					layout.binningMode = 0;
+
+					// Setting the stub for 'viz' which is going to check whether
+					// the correct params being passed to the visualization rendering function
+					sinon.stub( hexagonalBinning, "viz",
+						function ( self, data, labels,
+								   measureMin1, measureMax1, measureMin2, measureMax2,
+								   width, height, id, selections, binningMode,
+								   areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
+								   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
+								   centerHexagons, showNumber ) {
+
+							// expecting binningMode flag to be 0
+							expect( binningMode ).toBe( 0 );
+
+							// Additional checks specific to "Color binning" can go here...
+							expect( 1 ).toBe( 1 ); // dummy test for now...
+						} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.viz );
+
+					hexagonalBinning.viz.restore();
+				} );
+
+				it( "Area binning set correctly.", function () {
+					var element = $( "<div></div>" );
+					var layout = JSON.parse( mockdata );
+
+					// Setting the binning mode to "Area Binning" (i.e. 1)
+					layout.binningMode = 1;
+
+					// Setting the stub for 'viz' which is going to check whether
+					// the correct params being passed to the visualization rendering function
+					sinon.stub( hexagonalBinning, "viz",
+						function ( self, data, labels,
+								   measureMin1, measureMax1, measureMin2, measureMax2,
+								   width, height, id, selections, binningMode,
+								   areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
+								   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
+								   centerHexagons, showNumber ) {
+
+							// expecting binningMode flag to be 0
+							expect( binningMode ).toBe( 1 );
+
+							// Additional checks specific to "Color binning" can go here...
+							expect( 1 ).toBe( 1 ); // dummy test for now...
+						} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.viz );
+
 					hexagonalBinning.viz.restore();
 				} );
 
