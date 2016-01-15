@@ -81,6 +81,31 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/layout2.data.
 
 				} );
 
+				it( "minimum and maximum measures are set correctly.", function () {
+
+					sinon.stub( hexagonalBinning, "viz",
+							function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
+									   height, id, selections, binningMode, areaColor, colorpalette, showLegend, colorAxis,
+									   maxRadius, minRadius, fillMesh, titleLayout, useStaticLayout, minXAxis, minYAxis,
+									   maxXAxis, maxYAxis, centerHexagons, showNumber ) {
+
+								// expecting binningMode flag to be 0
+								expect( measureMin1 ).toBe( 69 );
+								expect( measureMax1 ).toBe( 70 );
+								expect( measureMin2 ).toBe( 67 );
+								expect( measureMax2 ).toBe( 73 );
+							} );
+
+					// calling the paint with mock data
+					hexagonalBinning.paint( element, layout );
+
+					// checking whether 'viz' got called
+					sinon.assert.called( hexagonalBinning.viz );
+
+					hexagonalBinning.viz.restore();
+
+				} );
+
 				it( "axis labels are set correctly.", function () {
 
 					sinon.stub( hexagonalBinning, "viz",
