@@ -260,15 +260,15 @@ define( ["jquery", "text!./HexagonalBinning.css", "./d3.min", "./hexbin", "./las
 		},
 		paint: function ( $element, layout ) {
 			// Call SenseUtils to page the data for > 10000
-			senseUtils.pageExtensionData( this, $element, layout, this._drawHex, self );
+			senseUtils.pageExtensionData( this, $element, layout, this.drawHex, self );
 		},
-		_drawHex: drawHex,
-		_viz: viz
+		drawHex: _drawHex,
+		viz: _viz
 
 	};
 } );
 
-var drawHex = function ( $element, layout, fullMatrix, self ) {
+var _drawHex = function ( $element, layout, fullMatrix, self ) {
 
 	// get qMatrix data array
 	//var qMatrix = layout.qHyperCube.qDataPages[0].qMatrix;
@@ -340,7 +340,7 @@ var drawHex = function ( $element, layout, fullMatrix, self ) {
 		} ) )
 	}
 
-	self._viz(
+	self.viz(
 		self,
 		data,
 		measureLabels,
@@ -371,12 +371,12 @@ var drawHex = function ( $element, layout, fullMatrix, self ) {
 
 }
 
-var viz = function ( self, data, labels,
-					 measureMin1, measureMax1, measureMin2, measureMax2,
-					 width, height, id, selections, binningMode,
-					 areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
-					 titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
-					 centerHexagons, showNumber ) {
+var _viz = function ( self, data, labels,
+					  measureMin1, measureMax1, measureMin2, measureMax2,
+					  width, height, id, selections, binningMode,
+					  areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
+					  titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
+					  centerHexagons, showNumber ) {
 
 
 
