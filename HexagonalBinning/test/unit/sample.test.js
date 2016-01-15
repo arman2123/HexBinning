@@ -118,17 +118,17 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/selected.data
 				it( "minimum and maximum measures are set correctly.", function () {
 
 					sinon.stub( hexagonalBinning, "viz",
-							function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
-									   height, id, selections, binningMode, areaColor, colorpalette, showLegend, colorAxis,
-									   maxRadius, minRadius, fillMesh, titleLayout, useStaticLayout, minXAxis, minYAxis,
-									   maxXAxis, maxYAxis, centerHexagons, showNumber ) {
+						function ( self, data, labels, measureMin1, measureMax1, measureMin2, measureMax2, width,
+								   height, id, selections, binningMode, areaColor, colorpalette, showLegend, colorAxis,
+								   maxRadius, minRadius, fillMesh, titleLayout, useStaticLayout, minXAxis, minYAxis,
+								   maxXAxis, maxYAxis, centerHexagons, showNumber ) {
 
-								// expecting binningMode flag to be 0
-								expect( measureMin1 ).toBe( 69 );
-								expect( measureMax1 ).toBe( 70 );
-								expect( measureMin2 ).toBe( 67 );
-								expect( measureMax2 ).toBe( 73 );
-							} );
+							// expecting binningMode flag to be 0
+							expect( measureMin1 ).toBe( 69 );
+							expect( measureMax1 ).toBe( 70 );
+							expect( measureMin2 ).toBe( 67 );
+							expect( measureMax2 ).toBe( 73 );
+						} );
 
 					// calling the paint with mock data
 					hexagonalBinning.paint( element, layout );
@@ -145,25 +145,25 @@ define( ["jquery", "hexagonalBinning", "senseUtils", "text!../data/selected.data
 					// Setting the stub for 'viz' which is going to check whether
 					// the correct params being passed to the visualization rendering function
 					sinon.stub( hexagonalBinning, "viz",
-							function ( self, data, labels,
-									   measureMin1, measureMax1, measureMin2, measureMax2,
-									   width, height, id, selections, binningMode,
-									   areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
-									   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
-									   centerHexagons, showNumber ) {
+						function ( self, data, labels,
+								   measureMin1, measureMax1, measureMin2, measureMax2,
+								   width, height, id, selections, binningMode,
+								   areaColor, colorpalette, showLegend, colorAxis, maxRadius, minRadius, fillMesh,
+								   titleLayout, useStaticLayout, minXAxis, minYAxis, maxXAxis, maxYAxis,
+								   centerHexagons, showNumber ) {
 
-								expect( colorpalette.length ).toBe( 9 );
-								expect( colorpalette[0] ).toBe( "#ffffe5" );
-								expect( colorpalette[1] ).toBe( "#fff7bc" );
-								expect( colorpalette[2] ).toBe( "#fee391" );
-								expect( colorpalette[3] ).toBe( "#fec44f" );
-								expect( colorpalette[4] ).toBe( "#fe9929" );
-								expect( colorpalette[5] ).toBe( "#ec7014" );
-								expect( colorpalette[6] ).toBe( "#cc4c02" );
-								expect( colorpalette[7] ).toBe( "#993404" );
-								expect( colorpalette[8] ).toBe( "#662506" );
+							expect( colorpalette.length ).toBe( 9 );
+							expect( colorpalette[0] ).toBe( "#ffffe5" );
+							expect( colorpalette[1] ).toBe( "#fff7bc" );
+							expect( colorpalette[2] ).toBe( "#fee391" );
+							expect( colorpalette[3] ).toBe( "#fec44f" );
+							expect( colorpalette[4] ).toBe( "#fe9929" );
+							expect( colorpalette[5] ).toBe( "#ec7014" );
+							expect( colorpalette[6] ).toBe( "#cc4c02" );
+							expect( colorpalette[7] ).toBe( "#993404" );
+							expect( colorpalette[8] ).toBe( "#662506" );
 
-							} );
+						} );
 
 					// calling the paint with mock data
 					hexagonalBinning.paint( element, layout );
